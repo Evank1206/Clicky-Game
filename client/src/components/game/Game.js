@@ -7,29 +7,28 @@ class Game extends Component {
         super();
         this.state = { 
             score: 0,
-            clickedObjects: []
-         };
-        // this.incrementScore = this.incrementScore.bind(this);
+            clickedObjects: [],
+            btnsArr: [1,2,3,4,5,6,7,8,9,10]
+         }
       }
 
+    shuffle = () =>{
+        const numbs = this.state.btnsArr;
+        for(let i = numbs.length-1; i>0; i--){
+            // console.log(i, numbs);
+            const mixed = Math.floor(Math.random() * (i+2));
+            [numbs[i], numbs[mixed]] = [ numbs[mixed], numbs[i] ]              
+        }
+        console.log(numbs);
+    }
+      
     gameover = () =>{
-        // console.log(this.state.score=0);
-        this.setState({score:0});   
+        this.setState({score:0});
+        this.shuffle()  
     }
 
     incrementScore = (e) =>{
-
-        // console.log("before: " + this.state.score);
-        e.preventDefault();
-        console.log('id:',e.target.id);
-        // this.state.clickedObject.push(e.target.id)
-
-        //check if e.target.id exists already in this.state.clickedObject
-        // if true
-            //gameover
-        //else
-            //add the id to clickedObject
-            //increment the score
+        // e.preventDefault();
         let found = false;
         for(let i=0; i<this.state.clickedObjects.length; i++){
             if(e.target.id === this.state.clickedObjects[i]){
@@ -43,18 +42,11 @@ class Game extends Component {
         }else{
             const newClickedObjects = this.state.clickedObjects;
             newClickedObjects.push(e.target.id);
-            this.setState({clickedObjects:newClickedObjects, score: this.state.score+1});
+            this.setState({clickedObjects:newClickedObjects, score: this.state.score +1});
+            this.shuffle();
         }
-    
-        // if(true){
-        //     this.setState({score: this.state.score + 1});
-        // }
-        // else{
-        //     this.setState({score: 0});
-        // }
-    // console.log("after: " + this.state.score);
-
     }
+
 
 
     render() {
