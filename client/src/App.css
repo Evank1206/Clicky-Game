@@ -1,3 +1,24 @@
 .App {
   text-align: center;
+  background-image:url("https://store-images.s-microsoft.com/image/apps.65389.13931505870829841.b533c87a-69d1-463d-9776-cd5d228c81fd.26408da8-87ca-4fb5-b748-3757344914b4?mode=scale&q=90&h=720&w=1280&background=%23FFFFFF");
+  background-size: cover;
+  min-height: 95vh;
+}
+.container{
+  display: inline-flex;
+  padding: 10px;
+  /* justify-content: space-around; */
+  padding-top:60px ;
+}
+.items{
+  border: solid white;
+
+}
+.text{
+  background-image:url(../src/img/vertical-waves.png);
+  color: blue;
+  padding-left: 60%;
+  margin: 0 auto;
+  line-height: 1.7em;
+
 }

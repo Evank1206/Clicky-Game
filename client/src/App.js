@@ -6,9 +6,9 @@ function App() {
   return (
     <div className="App">
 
-        <h1>Hello Anara</h1>
+        <h1 style={{color:"orange"}}>Clicky Game - Dragon Ball-Z</h1>
         <Game/>
-        
+
     </div>
   );
 }
